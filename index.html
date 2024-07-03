@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TINTOKLIN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icono1.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="icono"></div> <!-- Icono en la esquina izquierda -->
+    <h1>REGISTRO</h1>
+    <form class="formcontainer" id="tintoreriaForm" method="post" action="registro.php">
+
+        <div class="form-group" id="grupo__nombre">
+            <label for="nombre">Nombre<span>*</span></label>
+            <div class="grupo_input">
+                <input class="input" type="text" id="nombre" name="nombre" required placeholder="nombre">
+            </div>
+            <p class="formulario__input-error">Solo debe contener letras sin acentos</p>
+        </div>
+    
+        <div class="form-group" id="grupo__apellido">
+            <label for="apellido">Apellido<span>*</span></label>
+            <div class="grupo_input">
+                <input class="input" type="text" id="apellido" name="apellido" required placeholder="apellido">
+            </div>
+            <p class="formulario__input-error">Solo debe contener letras sin acentos</p>
+        </div>
+    
+        <div class="form-group" id="grupo__correo">
+            <label for="correo">Email<span>*</span></label>
+            <div class="grupo_input">
+                <input class="input" type="email" id="correo" name="correo" required placeholder="ejemplo@correo.com">
+            </div>
+            <p class="formulario__input-error">Debe tener un formato válido</p>
+        </div>
+    
+        <div class="form-group" id="grupo__telefono">
+            <label for="telefono">Teléfono<span>*</span></label>
+            <div class="grupo_input">
+                <input class="input" type="text" id="telefono" name="telefono" required placeholder="1234567890">
+            </div>
+            <p class="formulario__input-error">El teléfono solo debe contener 10 dígitos</p>
+        </div>
+    
+        <!--Checkbox Domicilio
+        <div class="form-group" id="grupo__direccion">
+            <input type="checkbox" id="domicilio">
+            <label for="domicilio">Agregar domicilio</label>  
+        </div>-->
+        <div class="formulario__grupo" id="grupo__terminos">
+            <label class="formulario__label">
+                <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+                Agregar Domicilio
+            </label>
+        </div>
+
+        <div class="extra-fields">
+            <div class="form-group" id="grupo__calle">
+                <label for="calle">Calle<span>*</span></label>
+                <div class="grupo_input">
+                    <input class="input" type="text" id="calle" name="calle" placeholder="calle">
+                </div>
+                <p class="formulario__input-error">Solo debe contener letras sin acentos y espacios</p>
+            </div>
+    
+            <div class="form-group" id="grupo__numeroext">
+                <label for="numeroext">Número exterior:<span>*</span></label>
+                <div class="grupo_input">
+                    <input class="input" type="text" id="numeroext" name="numeroext" placeholder="numero exterior">
+                </div>
+                <p class="formulario__input-error">Solo acepta números</p>
+            </div>
+    
+            <div class="form-group" id="grupo__numeroint">
+                <label for="numeroint">Número interior</label>
+                <div class="grupo_input">
+                    <input class="input" type="text" id="numeroint" name="numeroint" placeholder="numero interior">
+                </div>
+                <p class="formulario__input-error">Solo acepta números</p>
+            </div>
+    
+            <div class="form-group" id="grupo__cp">
+                <label for="cp">Código Postal<span>*</span></label>
+                <div class="grupo_input">
+                    <input class="input" type="text" id="cp" name="cp" placeholder="codigo postal">
+                </div>
+                <p class="formulario__input-error">Debe contener 5 dígitos numéricos</p>
+            </div>
+    
+            <div class="form-group" id="grupo__delegacion">
+                <label for="delegacion">Delegación<span>*</span></label>
+                <div class="grupo_input">
+                    <input class="input" type="text" id="delegacion" name="delegacion" placeholder="delegacion">
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="colonia">Colonia<span>*</span>
+                    <select name="colonia" id="colonia">
+                        <option disabled selected>Seleccione su colonia</option>
+                        <option value="08000">Ramos Millan</option>
+                        <option value="08400">Granjas Mexico</option>
+                        <option value="08510">El Rodeo</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+    
+        <!--Mensajes de error o exito y boton
+        <div class="formulario__mensaje" id="formulario_incompleto">
+            <p><i class="fas fa-exclamation-triangle"></i><b>Error: : Debes llenar correctamente el formulario</b></p>
+        </div>
+
+        <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <button type="submit" class="enviar" id="mostrarCampos">Registrar</button>
+            <p class="formulario__mensaje-exito" id="formulario_completado">Formulario enviado exitosamente!</p>
+        </div>
+        <div class="formulario__mensaje" id="formulario_incompleto">
+            <p><i class="bi bi-exclamation-triangle-fill"></i> <b>Error: Debes llenar correctamente el formulario</b></p>
+        </div>-->
+    
+        <button class="enviar" type="submit" id="mostrarCampos">Enviar</button>
+        <!--<p class="formulario__mensaje-exito" id="formulario_completado"><b>Registro éxitoso!</b></p>-->
+    
+    </form>
+    
+    
+  <script src="login.js"></script>
+  <script>
+    document.getElementById("terminos").addEventListener("change", function () {
+        let camposExtra = document.querySelector(".extra-fields");
+        if (this.checked) {
+            camposExtra.style.display = "block";
+        } else {
+            camposExtra.style.display = "none";
+        }
+    });
+</script> 
+</body>
+</html>
